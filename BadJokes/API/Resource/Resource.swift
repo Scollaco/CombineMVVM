@@ -13,14 +13,18 @@ struct Resource<T: Decodable> {
     }
     
     let parameters = self.route.properties.parameters
-    
+
     components.queryItems = parameters.keys.map { key in
       URLQueryItem(name: key, value: parameters[key]?.description)
     }
     guard let componentsURL = components.url else {
       return nil
     }
-    return URLRequest(url: componentsURL)
+    
+    var request = URLRequest(url: componentsURL)
+    request.allHTTPHeaderFields = ["Accept": "application/json"]
+    
+    return request
   }
   
   init(route: Route) {

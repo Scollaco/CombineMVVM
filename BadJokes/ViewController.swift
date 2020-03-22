@@ -1,20 +1,28 @@
-//
-//  ViewController.swift
-//  BadJokes
-//
-//  Created by Saturnino Collaco Teixeria Filho on 3/21/20.
-//  Copyright © 2020 Saturnino. All rights reserved.
-//
-
+import Combine
 import UIKit
 
 class ViewController: UIViewController {
 
+  private var cancellables: [AnyCancellable] = []
+  private let viewModel: JokesViewModelType = JokesViewModel(service: JokesService(service: Service()))
+  private let viewDidLoadInput = PassthroughSubject<Void, Never>()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    cancellables.forEach { $0.cancel() }
+    cancellables.removeAll()
+    
+    let input = JokesViewModelInput(viewDidLoad: self.viewDidLoadInput.eraseToAnyPublisher())
+    
+    self.viewModel.transform(input: input)
+    self.viewDidLoadInput.send(())
+    self.viewModel.outputs.joke
+      .sink(receiveValue: { joke in
+        print(joke?.joke)
+      }).store(in: &cancellables)
+    
+    viewDidLoadInput.send()
   }
-
-
 }
 

@@ -23,6 +23,7 @@
 		3B6B41F82427051D00C7F5AC /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41F72427051D00C7F5AC /* Publisher+Utils.swift */; };
 		3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41FC242705F600C7F5AC /* JokesService.swift */; };
 		3B6B42002427068900C7F5AC /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41FF2427068900C7F5AC /* Joke.swift */; };
+		3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B420224270A1000C7F5AC /* JokesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3B6B41F72427051D00C7F5AC /* Publisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utils.swift"; sourceTree = "<group>"; };
 		3B6B41FC242705F600C7F5AC /* JokesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesService.swift; sourceTree = "<group>"; };
 		3B6B41FF2427068900C7F5AC /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		3B6B420224270A1000C7F5AC /* JokesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 		3B6B4201242709C800C7F5AC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B6B420224270A1000C7F5AC /* JokesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				3B6B41F02427005000C7F5AC /* NetworkError.swift in Sources */,
 				3B6B41C42426F65500C7F5AC /* AppDelegate.swift in Sources */,
 				3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */,
+				3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */,
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
