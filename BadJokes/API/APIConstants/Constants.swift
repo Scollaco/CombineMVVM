@@ -1,5 +1,5 @@
 import Foundation
 
 struct ApiConstants {
-  static let baseUrl = "https://api.themoviedb.org/3"
+  static let baseUrl = "https://icanhazdadjoke.com"
 }

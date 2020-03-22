@@ -10,7 +10,7 @@ enum Route {
   var properties: (path: String, parameters: [String: CustomStringConvertible], method: Method) {
     switch self {
     case .fetchJoke:
-      return (path: "/joke", parameters: [:], method: .GET)
+      return (path: "/search", parameters: [:], method: .GET)
     }
   }
 }
