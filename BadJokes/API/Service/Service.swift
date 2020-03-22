@@ -9,7 +9,6 @@ final class Service: ServiceType {
     }
     
     return URLSession.shared.dataTaskPublisher(for: request)
-      .print()
       .mapError { _ in NetworkError.invalidRequest }
       .tryMap { $0.data }
       .decode(type: T.self, decoder: JSONDecoder())
