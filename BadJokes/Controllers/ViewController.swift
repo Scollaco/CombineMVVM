@@ -2,6 +2,7 @@ import Combine
 import UIKit
 
 final class ViewController: UIViewController {
+  // MARK: Properties
   
   @IBOutlet weak var emojiImageView: UIImageView!
   @IBOutlet weak var jokeLabel: UILabel!
@@ -13,12 +14,16 @@ final class ViewController: UIViewController {
   private var jokeButtonTappedInput = PassthroughSubject<Void, Never>()
   private let viewDidLoadInput = PassthroughSubject<Void, Never>()
   
+  // MARK: Lyfecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.bindViewModel()
     self.viewDidLoadInput.send()
   }
+  
+  // MARK: View Model
   
   func bindViewModel() {
     cancellables.forEach { $0.cancel() }
@@ -47,8 +52,9 @@ final class ViewController: UIViewController {
       }).store(in: &cancellables)
   }
   
+  // MARK: Actions
+  
   @IBAction func jokeButtonTapped(_ sender: Any) {
     self.jokeButtonTappedInput.send(())
   }
 }
-

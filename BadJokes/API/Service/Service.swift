@@ -3,7 +3,7 @@ import Foundation
 
 final class Service: ServiceType {
   
-  func load<T>(_ resource: Resource<T>) -> AnyPublisher<Result<T, NetworkError>, Never> where T : Decodable {
+  func load<T>(_ resource: Resource<T>) -> AnyPublisher<Result<T, NetworkError>, Never> where T: Decodable {
     guard let request = resource.request else {
       return .just(.failure(.invalidRequest))
     }
