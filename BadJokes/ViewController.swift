@@ -30,23 +30,20 @@ final class ViewController: UIViewController {
     self.viewModel.transform(input: input)
     
     self.viewModel.outputs.joke
-      .sink(receiveValue: { [weak self] joke in
-        self?.jokeLabel.text = joke?.joke
-      }).store(in: &cancellables)
+      .assign(to: \.text, on: self.jokeLabel)
+      .store(in: &cancellables)
+     
+    self.viewModel.outputs.labelIsHidden
+      .assign(to: \.isHidden, on: self.jokeLabel)
+      .store(in: &cancellables)
+    
+    self.viewModel.outputs.loadingIndicatorIsHidden
+     .assign(to: \.isHidden, on: self.loadingIndicator)
+      .store(in: &cancellables)
     
     self.viewModel.outputs.emojiName
       .sink(receiveValue: { [weak self] name in
         self?.emojiImageView.image = UIImage(named: name)
-      }).store(in: &cancellables)
-    
-    self.viewModel.outputs.labelIsHidden
-      .sink(receiveValue: { [weak self] isHidden in
-        self?.jokeLabel.isHidden = isHidden
-      }).store(in: &cancellables)
-    
-    self.viewModel.outputs.loadingIndicatorIsHidden
-      .sink(receiveValue: { [weak self] isHidden in
-        self?.loadingIndicator.isHidden = isHidden
       }).store(in: &cancellables)
   }
   

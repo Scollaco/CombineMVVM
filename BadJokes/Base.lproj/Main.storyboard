@@ -25,23 +25,23 @@
                                             <constraint firstAttribute="height" constant="133" id="Z00-in-b89"/>
                                         </constraints>
                                     </imageView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Yk-dNe">
-                                        <rect key="frame" x="170.5" y="335.5" width="37" height="37"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Yk-dNe">
+                                        <rect key="frame" x="170.5" y="256.5" width="37" height="0.0"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Start for a joke!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1d-1g-vsQ">
-                                        <rect key="frame" x="106" y="475.5" width="166.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="102" y="405" width="174" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylv-jE-ZZJ">
                                         <rect key="frame" x="149" y="602" width="80" height="80"/>
-                                        <color key="backgroundColor" red="0.96130555868148804" green="0.55457768545446928" blue="0.61119852145547138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.92187874520998547" green="0.53239502807823025" blue="0.5883226060826916" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="bHI-WE-6Is"/>
                                             <constraint firstAttribute="width" secondItem="ylv-jE-ZZJ" secondAttribute="height" multiplier="1:1" id="mWF-SK-3LO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <state key="normal" title="Start">
                                             <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </state>
@@ -59,7 +59,7 @@
                                 <edgeInsets key="layoutMargins" top="100" left="8" bottom="100" right="8"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.4777847442" green="0.72389249460000005" blue="0.96130555870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.44509876384155772" green="0.67895363370045547" blue="0.90886465844093267" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.47778474423159673" green="0.72389249463780669" blue="0.96130555868148804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="19d-Uu-GaI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="5Md-mI-9zU"/>

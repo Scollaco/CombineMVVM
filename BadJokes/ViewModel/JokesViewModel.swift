@@ -15,7 +15,7 @@ protocol JokesViewModelOutput {
   var loadingIndicatorIsHidden: AnyPublisher<Bool, Never> { get }
   var labelIsHidden: AnyPublisher<Bool, Never> { get }
   var emojiName: AnyPublisher<String, Never> { get }
-  var joke: AnyPublisher<Joke?, Never> { get }
+  var joke: AnyPublisher<String?, Never> { get }
 }
 
 protocol JokesViewModelType {
@@ -37,10 +37,10 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelOutput {
     
     self.joke = input.jokeButtonTappedInput
       .flatMap({ [unowned self]  _ in self.service.fetchJoke() })
-      .map({ result -> Joke? in
+      .map({ result -> String? in
         switch result {
-        case .success(let joke):
-          return joke.randomElement()
+        case .success(let jokes):
+          return jokes.randomElement()?.joke
         case .failure(_):
           return nil
         }
@@ -80,7 +80,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelOutput {
   }
   
   var emojiName: AnyPublisher<String, Never> = .just(ImageName.neutral)
-  var joke: AnyPublisher<Joke?, Never> = .just(nil)
+  var joke: AnyPublisher<String?, Never> = .just(nil)
   var labelIsHidden: AnyPublisher<Bool, Never> = .just(false)
   var loadingIndicatorIsHidden: AnyPublisher<Bool, Never> = .just(true)
   
