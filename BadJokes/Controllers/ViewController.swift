@@ -4,15 +4,12 @@ import UIKit
 final class ViewController: UIViewController {
   // MARK: Properties
   
-  @IBOutlet weak var emojiImageView: UIImageView!
-  @IBOutlet weak var jokeLabel: UILabel!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+  @IBOutlet private weak var emojiImageView: UIImageView!
+  @IBOutlet private weak var jokeLabel: UILabel!
+  @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
   
   private var cancellables: [AnyCancellable] = []
   private let viewModel: JokesViewModelType = JokesViewModel(service: JokesService(service: Service()))
-  
-  private var jokeButtonTappedInput = PassthroughSubject<Void, Never>()
-  private let viewDidLoadInput = PassthroughSubject<Void, Never>()
   
   // MARK: Lyfecycle
   
@@ -20,19 +17,14 @@ final class ViewController: UIViewController {
     super.viewDidLoad()
     
     self.bindViewModel()
-    self.viewDidLoadInput.send()
+    self.viewModel.inputs.viewDidLoad.send(())
   }
   
-  // MARK: View Model
+  // MARK: View model
   
   func bindViewModel() {
     cancellables.forEach { $0.cancel() }
     cancellables.removeAll()
-    
-    let input = JokesViewModelInput(jokeButtonTappedInput: jokeButtonTappedInput.eraseToAnyPublisher(),
-                                    viewDidLoad: self.viewDidLoadInput.eraseToAnyPublisher())
-    
-    self.viewModel.transform(input: input)
     
     self.viewModel.outputs.joke
       .assign(to: \.text, on: self.jokeLabel)
@@ -55,6 +47,7 @@ final class ViewController: UIViewController {
   // MARK: Actions
   
   @IBAction func jokeButtonTapped(_ sender: Any) {
-    self.jokeButtonTappedInput.send(())
+    self.viewModel.inputs.jokeButtonTapped.send(())
   }
 }
+
