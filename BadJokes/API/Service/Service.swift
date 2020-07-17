@@ -7,7 +7,7 @@ final class Service: ServiceType {
     guard let request = resource.request else {
       return .just(.failure(.invalidRequest))
     }
-    
+
     return URLSession.shared.dataTaskPublisher(for: request)
       .mapError { _ in NetworkError.invalidRequest }
       .tryMap { $0.data }

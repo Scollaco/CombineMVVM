@@ -37,10 +37,10 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
       .flatMap({ [unowned self]  _ in self.service.fetchJoke() })
       .map({ result -> String? in
         switch result {
-        case .success(let jokes):
-          return jokes.randomElement()?.joke
-        case .failure(_):
-          return nil
+        case .success(let joke):
+          return joke.joke
+        case .failure(let error):
+          return (error.localizedDescription)
         }
       })
       .delay(for: 2, scheduler: RunLoop.current)
