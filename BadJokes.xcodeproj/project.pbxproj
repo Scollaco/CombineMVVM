@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		3B6B41CB2426F65500C7F5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41C92426F65500C7F5AC /* Main.storyboard */; };
 		3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CC2426F65700C7F5AC /* Assets.xcassets */; };
 		3B6B41D02426F65700C7F5AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */; };
-		3B6B41DB2426F65800C7F5AC /* BadJokesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41DA2426F65800C7F5AC /* BadJokesTests.swift */; };
 		3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41E62426FAEE00C7F5AC /* ServiceType.swift */; };
 		3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41E92426FC1700C7F5AC /* Resource.swift */; };
 		3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41EC2426FFD000C7F5AC /* Route.swift */; };
@@ -24,6 +23,11 @@
 		3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41FC242705F600C7F5AC /* JokesService.swift */; };
 		3B6B42002427068900C7F5AC /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41FF2427068900C7F5AC /* Joke.swift */; };
 		3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B420224270A1000C7F5AC /* JokesViewModel.swift */; };
+		3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B4C250D832D00FA5F77 /* JokesView.swift */; };
+		3B734B50250E6FB800FA5F77 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B4F250E6FB800FA5F77 /* Colors.swift */; };
+		3B734B522512D15D00FA5F77 /* JokesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B512512D15D00FA5F77 /* JokesViewModelTests.swift */; };
+		3B734B552512D32A00FA5F77 /* MockJokesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B542512D32A00FA5F77 /* MockJokesServices.swift */; };
+		D7303DD57D743A97ACF863AA /* Pods_BadJokes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +50,6 @@
 		3B6B41CF2426F65700C7F5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6B41D12426F65700C7F5AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6B41D62426F65800C7F5AC /* BadJokesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadJokesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B6B41DA2426F65800C7F5AC /* BadJokesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadJokesTests.swift; sourceTree = "<group>"; };
 		3B6B41DC2426F65800C7F5AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6B41E62426FAEE00C7F5AC /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
 		3B6B41E92426FC1700C7F5AC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -58,6 +61,13 @@
 		3B6B41FC242705F600C7F5AC /* JokesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesService.swift; sourceTree = "<group>"; };
 		3B6B41FF2427068900C7F5AC /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		3B6B420224270A1000C7F5AC /* JokesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesViewModel.swift; sourceTree = "<group>"; };
+		3B734B4C250D832D00FA5F77 /* JokesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesView.swift; sourceTree = "<group>"; };
+		3B734B4F250E6FB800FA5F77 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3B734B512512D15D00FA5F77 /* JokesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesViewModelTests.swift; sourceTree = "<group>"; };
+		3B734B542512D32A00FA5F77 /* MockJokesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJokesServices.swift; sourceTree = "<group>"; };
+		4ADBEB105C840A1B11DD5ABF /* Pods-BadJokes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BadJokes.debug.xcconfig"; path = "Target Support Files/Pods-BadJokes/Pods-BadJokes.debug.xcconfig"; sourceTree = "<group>"; };
+		60631651F949E60F0ABAE756 /* Pods-BadJokes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BadJokes.release.xcconfig"; path = "Target Support Files/Pods-BadJokes/Pods-BadJokes.release.xcconfig"; sourceTree = "<group>"; };
+		9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BadJokes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7303DD57D743A97ACF863AA /* Pods_BadJokes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B67218D250D497700444992 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B734B4C250D832D00FA5F77 /* JokesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3B6B41B72426F65500C7F5AC = {
 			isa = PBXGroup;
 			children = (
 				3B6B41C22426F65500C7F5AC /* BadJokes */,
 				3B6B41D92426F65800C7F5AC /* BadJokesTests */,
 				3B6B41C12426F65500C7F5AC /* Products */,
+				7903DF9BA2D3A43A8ED4C2AE /* Pods */,
+				6E04EADF065525977354BB17 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +125,7 @@
 				3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */,
 				3B6B41CC2426F65700C7F5AC /* Assets.xcassets */,
 				3B6B41F92427055400C7F5AC /* API */,
+				3B734B4E250E6FA900FA5F77 /* UI */,
 				3B6B4204242839C500C7F5AC /* Controllers */,
 				3B6B41F62427050C00C7F5AC /* Extensions */,
 				3B6B41FE2427067F00C7F5AC /* Models */,
@@ -117,7 +139,8 @@
 		3B6B41D92426F65800C7F5AC /* BadJokesTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B6B41DA2426F65800C7F5AC /* BadJokesTests.swift */,
+				3B734B562512D35600FA5F77 /* ViewModels */,
+				3B734B532512D31900FA5F77 /* MockServices */,
 				3B6B41DC2426F65800C7F5AC /* Info.plist */,
 			);
 			path = BadJokesTests;
@@ -219,6 +242,7 @@
 		3B6B4204242839C500C7F5AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3B67218D250D497700444992 /* Views */,
 				3B6B41C72426F65500C7F5AC /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -233,6 +257,47 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		3B734B4E250E6FA900FA5F77 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3B734B4F250E6FB800FA5F77 /* Colors.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3B734B532512D31900FA5F77 /* MockServices */ = {
+			isa = PBXGroup;
+			children = (
+				3B734B542512D32A00FA5F77 /* MockJokesServices.swift */,
+			);
+			path = MockServices;
+			sourceTree = "<group>";
+		};
+		3B734B562512D35600FA5F77 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B734B512512D15D00FA5F77 /* JokesViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6E04EADF065525977354BB17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7903DF9BA2D3A43A8ED4C2AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ADBEB105C840A1B11DD5ABF /* Pods-BadJokes.debug.xcconfig */,
+				60631651F949E60F0ABAE756 /* Pods-BadJokes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,9 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B6B41DF2426F65800C7F5AC /* Build configuration list for PBXNativeTarget "BadJokes" */;
 			buildPhases = (
+				B83022B15745BFD34C6FA9B0 /* [CP] Check Pods Manifest.lock */,
 				3B6B41BC2426F65500C7F5AC /* Sources */,
 				3B6B41BD2426F65500C7F5AC /* Frameworks */,
 				3B6B41BE2426F65500C7F5AC /* Resources */,
+				9D5B67C7F5100712ABE841F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,12 +396,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9D5B67C7F5100712ABE841F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B83022B15745BFD34C6FA9B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BadJokes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B6B41BC2426F65500C7F5AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3B6B41C82426F65500C7F5AC /* ViewController.swift in Sources */,
+				3B734B50250E6FB800FA5F77 /* Colors.swift in Sources */,
 				3B6B41F2242700B900C7F5AC /* Service.swift in Sources */,
 				3B6B42002427068900C7F5AC /* Joke.swift in Sources */,
 				3B6B41F82427051D00C7F5AC /* Publisher+Utils.swift in Sources */,
@@ -345,6 +455,7 @@
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
+				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
 				3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */,
 				3B6B41F52427043D00C7F5AC /* Constants.swift in Sources */,
 			);
@@ -354,7 +465,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B6B41DB2426F65800C7F5AC /* BadJokesTests.swift in Sources */,
+				3B734B552512D32A00FA5F77 /* MockJokesServices.swift in Sources */,
+				3B734B522512D15D00FA5F77 /* JokesViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +616,7 @@
 		};
 		3B6B41E02426F65800C7F5AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ADBEB105C840A1B11DD5ABF /* Pods-BadJokes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +635,7 @@
 		};
 		3B6B41E12426F65800C7F5AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60631651F949E60F0ABAE756 /* Pods-BadJokes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -2,8 +2,9 @@ import Combine
 import Foundation
 
 private enum ImageName {
-  static let neutral: String = "emoji_neutral"
-  static let laugh: String = "emoji_laugh"
+  static let funny: String = "emoji_funny"
+  static let sad: String = "emoji_sad"
+  static let sleeping: String = "emoji_sleeping"
 }
 
 protocol JokesViewModelInput {
@@ -33,8 +34,14 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
     cancellables.forEach { $0.cancel() }
     cancellables.removeAll()
     
+    let _ = self.jokeButtonTapped.map {
+      print("\n\n\nTapped")
+    }
+    
     self.joke = self.jokeButtonTapped
-      .flatMap({ [unowned self]  _ in self.service.fetchJoke() })
+      .flatMap({ [unowned self]  _ in
+        self.service.fetchJoke()
+      })
       .map({ result -> String? in
         switch result {
         case .success(let joke):
@@ -48,11 +55,11 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
     
     let initialImage = self.viewDidLoad
       .merge(with: self.jokeButtonTapped)
-      .map { _ in return ImageName.neutral }
+      .map { _ in return ImageName.sleeping }
       .eraseToAnyPublisher()
     
     let loadingImage = self.joke
-      .map { _ in return ImageName.laugh }
+      .map { _ in return ImageName.funny }
       .eraseToAnyPublisher()
           
     self.emojiName = Publishers.Merge(initialImage, loadingImage)
@@ -84,7 +91,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
   
   //MARK: Outputs
   
-  var emojiName: AnyPublisher<String, Never> = .just(ImageName.neutral)
+  var emojiName: AnyPublisher<String, Never> = .just(ImageName.sleeping)
   var joke: AnyPublisher<String?, Never> = .just(nil)
   var labelIsHidden: AnyPublisher<Bool, Never> = .just(false)
   var loadingIndicatorIsHidden: AnyPublisher<Bool, Never> = .just(true)

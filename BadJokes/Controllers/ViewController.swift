@@ -1,4 +1,5 @@
 import Combine
+import SwiftUI
 import UIKit
 
 final class ViewController: UIViewController {
@@ -10,6 +11,10 @@ final class ViewController: UIViewController {
   
   private var cancellables: [AnyCancellable] = []
   private let viewModel: JokesViewModelType = JokesViewModel(service: JokesService(service: Service()))
+  
+  private var mainView: UIHostingController<JokesView> {
+    return UIHostingController.init(rootView: JokesView())
+  }
   
   // MARK: Lyfecycle
   
