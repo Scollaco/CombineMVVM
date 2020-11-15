@@ -28,22 +28,15 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
     private let service: JokesServiceType
     private var cancellables: [AnyCancellable] = []
 
-    init(service: JokesServiceType) {
+    init<S: Scheduler>(service: JokesServiceType, scheduler: S) {
         self.service = service
 
         let jokeResponse = self.jokeButtonTapped
             .flatMap { [weak self] _  in
                 self?.service.fetchJoke() ?? .just(.failure(APIError.genericError))
             }
-            .delay(for: 2, scheduler: RunLoop.current)
+            .delay(for: 1, scheduler: scheduler)
             .eraseToAnyPublisher()
-
-
-//         let jokeResponse = self.jokeButtonTapped
-//           .map { () -> Result<Joke, Error>  in  Result.failure(APIError.genericError) }
-//           .delay(for: 2, scheduler: RunLoop.current)
-//           .eraseToAnyPublisher()
-
 
         self.jokeLabelText = jokeResponse
             .compactMap { result -> String? in
@@ -78,7 +71,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
             .map { _ in return true }
             .eraseToAnyPublisher()
 
-        let didReceiveResponse = self.jokeLabelText
+        let didReceiveResponse = jokeResponse
             .map { _ in return false }
             .eraseToAnyPublisher()
 

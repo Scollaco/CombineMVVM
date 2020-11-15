@@ -2,18 +2,17 @@ import Combine
 import XCTest
 @testable import BadJokes
 
-final class JokesViewModelTests: XCTestCase {
+final class JokesViewModelTests: TestCase {
 
     var cancellables: Set<AnyCancellable> = []
     var viewModel: JokesViewModel!
 
     override func setUp() {
         super.setUp()
-
         viewModel = JokesViewModel(
             service: MockJokesService(
                 expectedJokeResponse: .success(Joke(id: "1", joke: "My Joke"))
-            )
+            ), scheduler: scheduler
         )
     }
 
@@ -34,7 +33,7 @@ final class JokesViewModelTests: XCTestCase {
 
         XCTAssertEqual(expectedValues, [false])
 
-        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 2.1)
+        scheduler.advance(by: 2)
 
         XCTAssertEqual(expectedValues, [false, true])
     }
@@ -55,15 +54,19 @@ final class JokesViewModelTests: XCTestCase {
     }
 
     func test_jokeLabelText_EmmitsText_WhenButonIsTapped() {
-        let exp = expectation(description: "Expected value")
+        var receivedText: String?
+
         viewModel.outputs.jokeLabelText
-            .sink { value in
-                XCTAssertEqual(value, "My Joke")
-                exp.fulfill()
-            }
+            .sink { value in receivedText = value }
             .store(in: &cancellables)
 
+        XCTAssertNil(receivedText)
+
         viewModel.inputs.jokeButtonTapped.send(())
-        wait(for: [exp], timeout: 2)
+
+        XCTAssertNil(receivedText)
+
+        scheduler.advance(by: 2)
+        XCTAssertEqual(receivedText, "My Joke")
     }
 }

@@ -10,7 +10,10 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
 
     private var cancellables: [AnyCancellable] = []
-    private let viewModel: JokesViewModelType = JokesViewModel(service: JokesService(service: Service()))
+    private let viewModel: JokesViewModelType = JokesViewModel(
+        service: JokesService(service: Service()),
+        scheduler: DispatchQueue.main
+    )
 
     // MARK: Lyfecycle
 
