@@ -12,7 +12,7 @@ final class JokesViewModelTests: TestCase {
         viewModel = JokesViewModel(
             service: MockJokesService(
                 expectedJokeResponse: .success(Joke(id: "1", joke: "My Joke"))
-            ), scheduler: scheduler
+            ), scheduler: scheduler.eraseToAnyScheduler()
         )
     }
 
@@ -38,6 +38,11 @@ final class JokesViewModelTests: TestCase {
         XCTAssertEqual(expectedValues, [false, true])
     }
 
+    func testLabelIsHidden() {
+
+
+    }
+
     func test_emojiName() {
         var expectedValues: [String] = []
         viewModel.outputs.emojiName
@@ -50,7 +55,15 @@ final class JokesViewModelTests: TestCase {
 
         XCTAssertEqual(expectedValues, ["emoji_sleeping"])
 
-        // TODO: Create test scheduler to advance in time and simulate server response after 2 seconds
+        viewModel.inputs.jokeButtonTapped.send()
+
+        scheduler.advance(by: 2)
+        XCTAssertEqual(
+            expectedValues, [
+                "emoji_sleeping",
+                "emoji_funny"
+            ]
+        )
     }
 
     func test_jokeLabelText_EmmitsText_WhenButonIsTapped() {

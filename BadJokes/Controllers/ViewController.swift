@@ -12,7 +12,7 @@ final class ViewController: UIViewController {
     private var cancellables: [AnyCancellable] = []
     private let viewModel: JokesViewModelType = JokesViewModel(
         service: JokesService(service: Service()),
-        scheduler: DispatchQueue.main
+        scheduler: DispatchQueue.main.eraseToAnyScheduler()
     )
 
     // MARK: Lyfecycle

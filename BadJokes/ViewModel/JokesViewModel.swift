@@ -26,16 +26,21 @@ protocol JokesViewModelType {
 
 final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewModelOutput {
     private let service: JokesServiceType
+    private let scheduler: AnySchedulerOf<DispatchQueue>
     private var cancellables: [AnyCancellable] = []
 
-    init<S: Scheduler>(service: JokesServiceType, scheduler: S) {
+    init(
+        service: JokesServiceType,
+        scheduler: AnySchedulerOf<DispatchQueue>
+    ) {
         self.service = service
+        self.scheduler = scheduler
 
         let jokeResponse = self.jokeButtonTapped
             .flatMap { [weak self] _  in
                 self?.service.fetchJoke() ?? .just(.failure(APIError.genericError))
             }
-            .delay(for: 1, scheduler: scheduler)
+            .delay(for: 2, scheduler: scheduler)
             .eraseToAnyPublisher()
 
         self.jokeLabelText = jokeResponse
@@ -52,6 +57,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
         let sleepingImage = self.viewDidLoad
             .merge(with: self.jokeButtonTapped)
             .map { _ in return ImageName.sleeping }
+            .removeDuplicates()
             .eraseToAnyPublisher()
 
         let jokeImage = jokeResponse
@@ -81,7 +87,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
 
         self.loadingIndicatorIsHidden = self.labelIsHidden
             .map { value in
-                return value == true ? false : true
+                return !value
             }
             .eraseToAnyPublisher()
     }

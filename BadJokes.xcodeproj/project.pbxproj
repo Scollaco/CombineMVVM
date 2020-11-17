@@ -30,6 +30,7 @@
 		8656E9B5255F40C50004ACAB /* TestScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9B4255F40C40004ACAB /* TestScheduler.swift */; };
 		8656E9B9255F44E50004ACAB /* TestSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9B8255F44E50004ACAB /* TestSchedulerTests.swift */; };
 		8656E9BE2561E7A00004ACAB /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9BD2561E7A00004ACAB /* TestCase.swift */; };
+		8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9D02561EC070004ACAB /* AnyScheduler.swift */; };
 		86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEC4B3254B4062007D3025 /* Result+Utils.swift */; };
 		D7303DD57D743A97ACF863AA /* Pods_BadJokes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		8656E9B4255F40C40004ACAB /* TestScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScheduler.swift; sourceTree = "<group>"; };
 		8656E9B8255F44E50004ACAB /* TestSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSchedulerTests.swift; sourceTree = "<group>"; };
 		8656E9BD2561E7A00004ACAB /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
+		8656E9D02561EC070004ACAB /* AnyScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyScheduler.swift; sourceTree = "<group>"; };
 		86CEC4B3254B4062007D3025 /* Result+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
 		9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BadJokes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E692CCD87CE5AC205A0B3036 /* Pods-BadJokes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BadJokes.release.xcconfig"; path = "Target Support Files/Pods-BadJokes/Pods-BadJokes.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				3B6B41FA242705B100C7F5AC /* Services */,
 				3B6B4205242839DD00C7F5AC /* Storyboards */,
 				3B6B4201242709C800C7F5AC /* ViewModel */,
+				8656E9D02561EC070004ACAB /* AnyScheduler.swift */,
 			);
 			path = BadJokes;
 			sourceTree = "<group>";
@@ -365,7 +368,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Saturnino;
 				TargetAttributes = {
 					3B6B41BF2426F65500C7F5AC = {
@@ -475,6 +478,7 @@
 				86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */,
 				3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */,
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
+				8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
 				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
@@ -550,6 +554,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -610,6 +615,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
