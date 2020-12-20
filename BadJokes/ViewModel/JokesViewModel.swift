@@ -61,12 +61,12 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
             .eraseToAnyPublisher()
 
         let jokeImage = jokeResponse
-            .filter(\.isSuccess)
+          .filter { $0.isSuccess }
             .map { _ in return ImageName.funny }
             .eraseToAnyPublisher()
 
         let sadImage = jokeResponse
-            .filter(\.isFailure)
+            .filter { $0.isFailure }
             .map { _ in return ImageName.sad }
             .eraseToAnyPublisher()
 
