@@ -1,31 +1,27 @@
 import SwiftUI
 import UIKit
 
-//struct JokesView: View {
-//  var body: some View {
-//    VStack {
-//      Image("emoji_funny")
-//        .resizable()
-//        .aspectRatio(contentMode: .fill)
-//        .frame(width: 150, height: 150, alignment: .top)
-//      
-//      Text("Tap Start for a joke!")
-//        .foregroundColor(.white)
-//        .font(.system(size: 21))
-//      
-//      Button("Start", action: {})
-//        .foregroundColor(.white)
-//        .frame(width: 90, height: 90, alignment: .center)
-//        .background(Color.salmon)
-//        .clipShape(Circle())
-//        .font(.system(.headline))
-//    }
-//  }
-//}
-//
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//      JokesView()
-//    }
-//}
+struct JokesView: View {
+  @State var savedJokes: [Joke] = [Joke(id: "1", joke: "My joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! "), Joke(id: "2", joke: "My joke!")]
+  
+  var body: some View {
+    List {
+      ForEach(savedJokes) { joke in
+        VStack {
+          Text(joke.joke)
+          .font(.headline)
+        }
+      }.onDelete(perform: deleteJokes)
+    }
+  }
+  
+  func deleteJokes(at offsets: IndexSet) {
+    savedJokes.remove(atOffsets: offsets)
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+      JokesView()
+    }
+}

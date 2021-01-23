@@ -57,7 +57,6 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
         let sleepingImage = self.viewDidLoad
             .merge(with: self.jokeButtonTapped)
             .map { _ in return ImageName.sleeping }
-            .removeDuplicates()
             .eraseToAnyPublisher()
 
         let jokeImage = jokeResponse
@@ -71,6 +70,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
             .eraseToAnyPublisher()
 
         self.emojiName = Publishers.Merge3(sleepingImage, jokeImage, sadImage)
+            .removeDuplicates()
             .eraseToAnyPublisher()
 
         let didTapButton = self.jokeButtonTapped
