@@ -11,8 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     let rootVC = UIHostingController.init(rootView: JokeViewController())
     window?.rootViewController = rootVC
+    window?.rootViewController?.view.backgroundColor = UIColor.lightBlue
     window?.makeKeyAndVisible()
-    
     return true
   }
 }

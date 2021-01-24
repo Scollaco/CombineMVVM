@@ -10,44 +10,48 @@ struct JokesView: View {
   )
   
   var body: some View {
-    GeometryReader { geometry in
-      VStack(alignment: .center) {
-        Image(self.viewModel.emojiName)
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 130, height: 130, alignment: .top)
+    ZStack {
+      Color.lightBlue
+      
+      GeometryReader { geometry in
+        VStack(alignment: .center) {
+          Image(self.viewModel.emojiName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 130, height: 130, alignment: .top)
           
-        ZStack(alignment: .center) {
-          Text(self.viewModel.jokeLabelText)
-            .foregroundColor(.white)
-            .font(.system(size: 21))
-            .lineLimit(nil)
-            .padding(.horizontal, 20)
-            .frame(
-              minWidth: 0,
-              maxWidth: .infinity,
-              minHeight: 0,
-              maxHeight: .infinity
+          ZStack(alignment: .center) {
+            Text(self.viewModel.jokeLabelText)
+              .foregroundColor(.white)
+              .font(.system(size: 21))
+              .lineLimit(nil)
+              .padding(.horizontal, 20)
+              .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity
             )
-            .visibility(hidden: self.$viewModel.labelIsHidden)
+              .visibility(hidden: self.$viewModel.labelIsHidden)
+            
+            ActivityIndicator()
+              .frame(width: 50, height: 50, alignment: .center)
+              .foregroundColor(.white)
+              .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+          }
           
-          ActivityIndicator()
-            .frame(width: 50, height: 50, alignment: .center)
+          Button("Start", action: self.jokeButtonTapped)
             .foregroundColor(.white)
-            .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+            .frame(width: 90, height: 90, alignment: .center)
+            .background(Color.salmon)
+            .clipShape(Circle())
+            .font(.system(.headline))
         }
-        
-        Button("Start", action: self.jokeButtonTapped)
-          .foregroundColor(.white)
-          .frame(width: 90, height: 90, alignment: .center)
-          .background(Color.salmon)
-          .clipShape(Circle())
-          .font(.system(.headline))
+        .padding([.top, .bottom], 50)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
       }
-      .padding([.top, .bottom], 50)
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(Color.lightBlue)
     }
-    .background(Color.lightBlue)
   }
   
   private func jokeButtonTapped() {
