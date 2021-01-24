@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  BadJokes
-//
-//  Created by Saturnino Collaco Teixeria Filho on 3/21/20.
-//  Copyright © 2020 Saturnino. All rights reserved.
-//
 import SwiftUI
 import UIKit
 

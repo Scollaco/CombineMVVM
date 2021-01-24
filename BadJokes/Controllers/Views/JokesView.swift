@@ -47,7 +47,7 @@ struct JokesView: View {
       .padding([.top, .bottom], 50)
       .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    .background(Color.lightBlue.edgesIgnoringSafeArea(.all))
+    .background(Color.lightBlue)
   }
   
   private func jokeButtonTapped() {
@@ -57,11 +57,11 @@ struct JokesView: View {
 
 struct JokeViewController : UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<JokeViewController>) -> UIHostingController<JokesView> {
-        return UIHostingController(rootView: JokesView())
+      let viewController = UIHostingController(rootView: JokesView())
+      return viewController
     }
 
-    func updateUIViewController(_ uiViewController: UIHostingController<JokesView>, context: UIViewControllerRepresentableContext<JokeViewController>) {
-    }
+    func updateUIViewController(_ uiViewController: UIHostingController<JokesView>, context: UIViewControllerRepresentableContext<JokeViewController>) {}
 }
 
 struct ContentView_Previews: PreviewProvider {
