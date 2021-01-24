@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B6B41C42426F65500C7F5AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C32426F65500C7F5AC /* AppDelegate.swift */; };
+		3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864825BC9E0700EFF526 /* AppDelegate.swift */; };
 		3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */; };
 		3B6B41C82426F65500C7F5AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C72426F65500C7F5AC /* ViewController.swift */; };
-		3B6B41CB2426F65500C7F5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41C92426F65500C7F5AC /* Main.storyboard */; };
 		3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CC2426F65700C7F5AC /* Assets.xcassets */; };
 		3B6B41D02426F65700C7F5AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */; };
 		3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41E62426FAEE00C7F5AC /* ServiceType.swift */; };
@@ -46,11 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B13864825BC9E0700EFF526 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6B41C02426F65500C7F5AC /* BadJokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadJokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B6B41C32426F65500C7F5AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B6B41C72426F65500C7F5AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B6B41CA2426F65500C7F5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B6B41CC2426F65700C7F5AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B6B41CF2426F65700C7F5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6B41D12426F65700C7F5AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,8 +137,8 @@
 		3B6B41C22426F65500C7F5AC /* BadJokes */ = {
 			isa = PBXGroup;
 			children = (
+				3B13864825BC9E0700EFF526 /* AppDelegate.swift */,
 				3B6B41D12426F65700C7F5AC /* Info.plist */,
-				3B6B41C32426F65500C7F5AC /* AppDelegate.swift */,
 				3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */,
 				3B6B41CC2426F65700C7F5AC /* Assets.xcassets */,
 				3B6B41F92427055400C7F5AC /* API */,
@@ -275,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */,
-				3B6B41C92426F65500C7F5AC /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -406,7 +403,6 @@
 			files = (
 				3B6B41D02426F65700C7F5AC /* LaunchScreen.storyboard in Resources */,
 				3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */,
-				3B6B41CB2426F65500C7F5AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,13 +468,13 @@
 				3B6B42002427068900C7F5AC /* Joke.swift in Sources */,
 				3B6B41F82427051D00C7F5AC /* Publisher+Utils.swift in Sources */,
 				3B6B41F02427005000C7F5AC /* APIError.swift in Sources */,
-				3B6B41C42426F65500C7F5AC /* AppDelegate.swift in Sources */,
 				8656E9B5255F40C50004ACAB /* TestScheduler.swift in Sources */,
 				3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */,
 				86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */,
 				3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */,
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
 				8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */,
+				3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
 				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
@@ -509,14 +505,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3B6B41C92426F65500C7F5AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B6B41CA2426F65500C7F5AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

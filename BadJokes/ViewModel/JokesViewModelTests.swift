@@ -6,7 +6,7 @@ final class JokesViewModelTests: TestCase {
 
     var cancellables: Set<AnyCancellable> = []
     var viewModel: JokesViewModel!
-
+  
     override func setUp() {
         super.setUp()
         viewModel = JokesViewModel(
@@ -67,19 +67,17 @@ final class JokesViewModelTests: TestCase {
     }
 
     func test_jokeLabelText_EmmitsText_WhenButonIsTapped() {
-        var receivedText: String?
 
-        viewModel.outputs.jokeLabelText
-            .sink { value in receivedText = value }
-            .store(in: &cancellables)
+        let initialText = viewModel.jokeLabelText
 
-        XCTAssertNil(receivedText)
+        XCTAssertEqual(initialText, "Tap for a joke!")
 
         viewModel.inputs.jokeButtonTapped.send(())
 
-        XCTAssertNil(receivedText)
+        XCTAssertEqual(initialText, "Tap for a joke!")
 
-        scheduler.advance(by: 2)
+        scheduler.advance(by: 4)
+        let receivedText = viewModel.jokeLabelText
         XCTAssertEqual(receivedText, "My Joke")
     }
 }

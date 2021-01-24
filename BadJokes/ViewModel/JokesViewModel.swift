@@ -16,7 +16,7 @@ protocol JokesViewModelOutput {
     var loadingIndicatorIsHidden: AnyPublisher<Bool, Never> { get }
     var labelIsHidden: AnyPublisher<Bool, Never> { get }
     var emojiName: AnyPublisher<String, Never> { get }
-    var jokeLabelText: AnyPublisher<String?, Never> { get }
+    var jokeLabelText: String { get }
 }
 
 protocol JokesViewModelType {
@@ -24,7 +24,8 @@ protocol JokesViewModelType {
     var outputs: JokesViewModelOutput { get }
 }
 
-final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewModelOutput {
+
+final class JokesViewModel: ObservableObject, JokesViewModelType, JokesViewModelInput, JokesViewModelOutput {
     private let service: JokesServiceType
     private let scheduler: AnySchedulerOf<DispatchQueue>
     private var cancellables: [AnyCancellable] = []
@@ -43,7 +44,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
             .delay(for: 2, scheduler: scheduler)
             .eraseToAnyPublisher()
 
-        self.jokeLabelText = jokeResponse
+         jokeResponse
             .compactMap { result -> String? in
                 switch result {
                 case .success(let joke):
@@ -51,8 +52,9 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
                 case .failure(let error):
                     return error.localizedDescription
                 }
-            }
-            .eraseToAnyPublisher()
+         }
+         .assign(to: \.jokeLabelText, on: self)
+         .store(in: &cancellables)
 
         let sleepingImage = self.viewDidLoad
             .merge(with: self.jokeButtonTapped)
@@ -61,12 +63,12 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
             .eraseToAnyPublisher()
 
         let jokeImage = jokeResponse
-            .filter(\.isSuccess)
+          .filter { $0.isSuccess }
             .map { _ in return ImageName.funny }
             .eraseToAnyPublisher()
 
         let sadImage = jokeResponse
-            .filter(\.isFailure)
+            .filter { $0.isFailure }
             .map { _ in return ImageName.sad }
             .eraseToAnyPublisher()
 
@@ -100,7 +102,7 @@ final class JokesViewModel: JokesViewModelType, JokesViewModelInput, JokesViewMo
     //MARK: Outputs
 
     var emojiName: AnyPublisher<String, Never> = .just(ImageName.sleeping)
-    var jokeLabelText: AnyPublisher<String?, Never> = .just(nil)
+    @Published var jokeLabelText: String = "Tap for a joke!"
     var labelIsHidden: AnyPublisher<Bool, Never> = .just(false)
     var loadingIndicatorIsHidden: AnyPublisher<Bool, Never> = .just(true)
 
