@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864825BC9E0700EFF526 /* AppDelegate.swift */; };
+		3B13864B25BCF95700EFF526 /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */; };
+		3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */; };
+		3B13864F25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */; };
 		3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */; };
 		3B6B41C82426F65500C7F5AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C72426F65500C7F5AC /* ViewController.swift */; };
 		3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CC2426F65700C7F5AC /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		3B13864825BC9E0700EFF526 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
+		3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Utils.swift"; sourceTree = "<group>"; };
+		3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		3B6B41C02426F65500C7F5AC /* BadJokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadJokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B6B41C72426F65500C7F5AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +217,9 @@
 			children = (
 				3B6B41F72427051D00C7F5AC /* Publisher+Utils.swift */,
 				86CEC4B3254B4062007D3025 /* Result+Utils.swift */,
+				3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */,
+				3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */,
+				3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,14 +479,17 @@
 				3B6B41F02427005000C7F5AC /* APIError.swift in Sources */,
 				8656E9B5255F40C50004ACAB /* TestScheduler.swift in Sources */,
 				3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */,
+				3B13864B25BCF95700EFF526 /* SwiftUI+View.swift in Sources */,
 				86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */,
 				3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */,
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
 				8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */,
 				3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
+				3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
 				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
+				3B13864F25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift in Sources */,
 				3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */,
 				3B6B41F52427043D00C7F5AC /* Constants.swift in Sources */,
 			);

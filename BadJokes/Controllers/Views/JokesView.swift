@@ -9,25 +9,33 @@ struct JokesView: View {
       scheduler: DispatchQueue.main.eraseToAnyScheduler()
   )
   
-  
   var body: some View {
     GeometryReader { geometry in
       VStack(alignment: .center) {
-        Image("emoji_funny")
+        Image(self.viewModel.emojiName)
           .resizable()
           .aspectRatio(contentMode: .fill)
-          .frame(width: 150, height: 150, alignment: .top)
+          .frame(width: 130, height: 130, alignment: .top)
           
-        Text(self.viewModel.jokeLabelText)
-          .foregroundColor(.white)
-          .font(.system(size: 21))
-          .lineLimit(nil)
-          .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            maxHeight: .infinity
-        )
+        ZStack(alignment: .center) {
+          Text(self.viewModel.jokeLabelText)
+            .foregroundColor(.white)
+            .font(.system(size: 21))
+            .lineLimit(nil)
+            .padding(.horizontal, 20)
+            .frame(
+              minWidth: 0,
+              maxWidth: .infinity,
+              minHeight: 0,
+              maxHeight: .infinity
+            )
+            .visibility(hidden: self.$viewModel.labelIsHidden)
+          
+          ActivityIndicator()
+            .frame(width: 50, height: 50, alignment: .center)
+            .foregroundColor(.white)
+            .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+        }
         
         Button("Start", action: self.jokeButtonTapped)
           .foregroundColor(.white)
@@ -59,14 +67,5 @@ struct JokeViewController : UIViewControllerRepresentable {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
       JokesView()
-    }
-}
-
-extension View {
-    @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
-        switch shouldHide {
-        case true: self.hidden()
-        case false: self
-        }
     }
 }

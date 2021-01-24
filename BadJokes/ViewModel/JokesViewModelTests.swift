@@ -22,20 +22,15 @@ final class JokesViewModelTests: TestCase {
     }
 
     func test_loadingIndicatorIsHidden() {
-        var expectedValues: [Bool] = []
-        viewModel.outputs.loadingIndicatorIsHidden
-            .sink { expectedValues.append($0) }
-            .store(in: &cancellables)
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, true)
+        
+      viewModel.inputs.jokeButtonTapped.send()
 
-        XCTAssertEqual(expectedValues, [])
-
-        viewModel.inputs.jokeButtonTapped.send()
-
-        XCTAssertEqual(expectedValues, [false])
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, false)
 
         scheduler.advance(by: 2)
 
-        XCTAssertEqual(expectedValues, [false, true])
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, true)
     }
 
     func testLabelIsHidden() {
@@ -44,40 +39,22 @@ final class JokesViewModelTests: TestCase {
     }
 
     func test_emojiName() {
-        var expectedValues: [String] = []
-        viewModel.outputs.emojiName
-            .sink { expectedValues.append($0) }
-            .store(in: &cancellables)
-
-        XCTAssertEqual(expectedValues, [])
-
-        viewModel.inputs.viewDidLoad.send()
-
-        XCTAssertEqual(expectedValues, ["emoji_sleeping"])
+        XCTAssertEqual(viewModel.outputs.emojiName, "emoji_sleeping")
 
         viewModel.inputs.jokeButtonTapped.send()
 
         scheduler.advance(by: 2)
-        XCTAssertEqual(
-            expectedValues, [
-                "emoji_sleeping",
-                "emoji_funny"
-            ]
-        )
+        XCTAssertEqual(viewModel.outputs.emojiName, "emoji_funny")
     }
 
     func test_jokeLabelText_EmmitsText_WhenButonIsTapped() {
-
-        let initialText = viewModel.jokeLabelText
-
-        XCTAssertEqual(initialText, "Tap for a joke!")
+        XCTAssertEqual(viewModel.jokeLabelText, "Tap for a joke!")
 
         viewModel.inputs.jokeButtonTapped.send(())
 
-        XCTAssertEqual(initialText, "Tap for a joke!")
+        XCTAssertEqual(viewModel.jokeLabelText, "Tap for a joke!")
 
-        scheduler.advance(by: 4)
-        let receivedText = viewModel.jokeLabelText
-        XCTAssertEqual(receivedText, "My Joke")
+        scheduler.advance(by: 2)
+        XCTAssertEqual(viewModel.jokeLabelText, "My Joke")
     }
 }
