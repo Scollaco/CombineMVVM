@@ -32,6 +32,7 @@ struct JokesView: View {
                 minHeight: 0,
                 maxHeight: .infinity
             )
+              .accessibility(identifier: "jokesLabel")
               .visibility(hidden: self.$viewModel.labelIsHidden)
             
             ActivityIndicator()
@@ -46,6 +47,7 @@ struct JokesView: View {
             .background(Color.salmon)
             .clipShape(Circle())
             .font(.system(.headline))
+            .accessibility(identifier: "startButton")
         }
         .padding([.top, .bottom], 50)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
