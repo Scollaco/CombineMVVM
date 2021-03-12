@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B6B41C42426F65500C7F5AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C32426F65500C7F5AC /* AppDelegate.swift */; };
-		3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */; };
-		3B6B41C82426F65500C7F5AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41C72426F65500C7F5AC /* ViewController.swift */; };
-		3B6B41CB2426F65500C7F5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41C92426F65500C7F5AC /* Main.storyboard */; };
+		3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864825BC9E0700EFF526 /* AppDelegate.swift */; };
+		3B13864B25BCF95700EFF526 /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */; };
+		3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */; };
+		3B13864F25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */; };
+		3B13865925BE196D00EFF526 /* BadJokesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13865825BE196D00EFF526 /* BadJokesUITests.swift */; };
+		3B13866225BE198D00EFF526 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13866125BE198D00EFF526 /* Page.swift */; };
+		3B13866625BE1A4700EFF526 /* JokesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13866525BE1A4700EFF526 /* JokesPage.swift */; };
+		3B13866825BE1CD100EFF526 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13866725BE1CD100EFF526 /* BaseTest.swift */; };
+		3B13866B25BE1FAC00EFF526 /* JokesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13866A25BE1FAC00EFF526 /* JokesUITests.swift */; };
 		3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CC2426F65700C7F5AC /* Assets.xcassets */; };
 		3B6B41D02426F65700C7F5AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */; };
 		3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B41E62426FAEE00C7F5AC /* ServiceType.swift */; };
@@ -36,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B13865B25BE196D00EFF526 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B6B41B82426F65500C7F5AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B6B41BF2426F65500C7F5AC;
+			remoteInfo = BadJokes;
+		};
 		3B6B41D72426F65800C7F5AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B6B41B82426F65500C7F5AC /* Project object */;
@@ -46,11 +58,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B13864825BC9E0700EFF526 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
+		3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Utils.swift"; sourceTree = "<group>"; };
+		3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		3B13865625BE196D00EFF526 /* BadJokesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadJokesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B13865825BE196D00EFF526 /* BadJokesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadJokesUITests.swift; sourceTree = "<group>"; };
+		3B13865A25BE196D00EFF526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B13866125BE198D00EFF526 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		3B13866525BE1A4700EFF526 /* JokesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesPage.swift; sourceTree = "<group>"; };
+		3B13866725BE1CD100EFF526 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
+		3B13866A25BE1FAC00EFF526 /* JokesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesUITests.swift; sourceTree = "<group>"; };
 		3B6B41C02426F65500C7F5AC /* BadJokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadJokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B6B41C32426F65500C7F5AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B6B41C72426F65500C7F5AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B6B41CA2426F65500C7F5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B6B41CC2426F65700C7F5AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B6B41CF2426F65700C7F5AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6B41D12426F65700C7F5AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +100,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B13865325BE196D00EFF526 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B6B41BD2426F65500C7F5AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +134,58 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3B13865025BE180300EFF526 /* BadJokesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B13866925BE1F9700EFF526 /* JokesUITests */,
+				3B13866025BE198300EFF526 /* Pages */,
+			);
+			path = BadJokesUITests;
+			sourceTree = "<group>";
+		};
+		3B13865725BE196D00EFF526 /* BadJokesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B13865825BE196D00EFF526 /* BadJokesUITests.swift */,
+				3B13865A25BE196D00EFF526 /* Info.plist */,
+			);
+			path = BadJokesUITests;
+			sourceTree = "<group>";
+		};
+		3B13866025BE198300EFF526 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				3B13866425BE1A1E00EFF526 /* JokesPage */,
+				3B13866325BE1A1600EFF526 /* Page */,
+				3B13866725BE1CD100EFF526 /* BaseTest.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		3B13866325BE1A1600EFF526 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				3B13866125BE198D00EFF526 /* Page.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		3B13866425BE1A1E00EFF526 /* JokesPage */ = {
+			isa = PBXGroup;
+			children = (
+				3B13866525BE1A4700EFF526 /* JokesPage.swift */,
+			);
+			path = JokesPage;
+			sourceTree = "<group>";
+		};
+		3B13866925BE1F9700EFF526 /* JokesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B13866A25BE1FAC00EFF526 /* JokesUITests.swift */,
+			);
+			path = JokesUITests;
+			sourceTree = "<group>";
+		};
 		3B67218D250D497700444992 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +197,10 @@
 		3B6B41B72426F65500C7F5AC = {
 			isa = PBXGroup;
 			children = (
+				3B13865025BE180300EFF526 /* BadJokesUITests */,
 				3B6B41C22426F65500C7F5AC /* BadJokes */,
 				3B6B41D92426F65800C7F5AC /* BadJokesTests */,
+				3B13865725BE196D00EFF526 /* BadJokesUITests */,
 				3B6B41C12426F65500C7F5AC /* Products */,
 				6E04EADF065525977354BB17 /* Frameworks */,
 				1B2495193E9A7E2D16D50BE5 /* Pods */,
@@ -132,6 +212,7 @@
 			children = (
 				3B6B41C02426F65500C7F5AC /* BadJokes.app */,
 				3B6B41D62426F65800C7F5AC /* BadJokesTests.xctest */,
+				3B13865625BE196D00EFF526 /* BadJokesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,9 +220,8 @@
 		3B6B41C22426F65500C7F5AC /* BadJokes */ = {
 			isa = PBXGroup;
 			children = (
+				3B13864825BC9E0700EFF526 /* AppDelegate.swift */,
 				3B6B41D12426F65700C7F5AC /* Info.plist */,
-				3B6B41C32426F65500C7F5AC /* AppDelegate.swift */,
-				3B6B41C52426F65500C7F5AC /* SceneDelegate.swift */,
 				3B6B41CC2426F65700C7F5AC /* Assets.xcassets */,
 				3B6B41F92427055400C7F5AC /* API */,
 				3B734B4E250E6FA900FA5F77 /* UI */,
@@ -213,6 +293,9 @@
 			children = (
 				3B6B41F72427051D00C7F5AC /* Publisher+Utils.swift */,
 				86CEC4B3254B4062007D3025 /* Result+Utils.swift */,
+				3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */,
+				3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */,
+				3B13864E25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				3B67218D250D497700444992 /* Views */,
-				3B6B41C72426F65500C7F5AC /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,7 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */,
-				3B6B41C92426F65500C7F5AC /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -324,6 +405,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B13865525BE196D00EFF526 /* BadJokesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B13865D25BE196D00EFF526 /* Build configuration list for PBXNativeTarget "BadJokesUITests" */;
+			buildPhases = (
+				3B13865225BE196D00EFF526 /* Sources */,
+				3B13865325BE196D00EFF526 /* Frameworks */,
+				3B13865425BE196D00EFF526 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B13865C25BE196D00EFF526 /* PBXTargetDependency */,
+			);
+			name = BadJokesUITests;
+			productName = BadJokesUITests;
+			productReference = 3B13865625BE196D00EFF526 /* BadJokesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3B6B41BF2426F65500C7F5AC /* BadJokes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B6B41DF2426F65800C7F5AC /* Build configuration list for PBXNativeTarget "BadJokes" */;
@@ -367,10 +466,15 @@
 		3B6B41B82426F65500C7F5AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Latest;
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Saturnino;
 				TargetAttributes = {
+					3B13865525BE196D00EFF526 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 3B6B41BF2426F65500C7F5AC;
+					};
 					3B6B41BF2426F65500C7F5AC = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -395,18 +499,25 @@
 			targets = (
 				3B6B41BF2426F65500C7F5AC /* BadJokes */,
 				3B6B41D52426F65800C7F5AC /* BadJokesTests */,
+				3B13865525BE196D00EFF526 /* BadJokesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B13865425BE196D00EFF526 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B6B41BE2426F65500C7F5AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3B6B41D02426F65700C7F5AC /* LaunchScreen.storyboard in Resources */,
 				3B6B41CD2426F65700C7F5AC /* Assets.xcassets in Resources */,
-				3B6B41CB2426F65500C7F5AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,26 +573,39 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B13865225BE196D00EFF526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B13866825BE1CD100EFF526 /* BaseTest.swift in Sources */,
+				3B13866B25BE1FAC00EFF526 /* JokesUITests.swift in Sources */,
+				3B13866225BE198D00EFF526 /* Page.swift in Sources */,
+				3B13866625BE1A4700EFF526 /* JokesPage.swift in Sources */,
+				3B13865925BE196D00EFF526 /* BadJokesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B6B41BC2426F65500C7F5AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B6B41C82426F65500C7F5AC /* ViewController.swift in Sources */,
 				3B734B50250E6FB800FA5F77 /* Colors.swift in Sources */,
 				3B6B41F2242700B900C7F5AC /* Service.swift in Sources */,
 				3B6B42002427068900C7F5AC /* Joke.swift in Sources */,
 				3B6B41F82427051D00C7F5AC /* Publisher+Utils.swift in Sources */,
 				3B6B41F02427005000C7F5AC /* APIError.swift in Sources */,
-				3B6B41C42426F65500C7F5AC /* AppDelegate.swift in Sources */,
 				8656E9B5255F40C50004ACAB /* TestScheduler.swift in Sources */,
-				3B6B41C62426F65500C7F5AC /* SceneDelegate.swift in Sources */,
+				3B13864B25BCF95700EFF526 /* SwiftUI+View.swift in Sources */,
 				86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */,
 				3B6B420324270A1000C7F5AC /* JokesViewModel.swift in Sources */,
 				3B6B41ED2426FFD000C7F5AC /* Route.swift in Sources */,
 				8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */,
+				3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */,
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
+				3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
 				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
+				3B13864F25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift in Sources */,
 				3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */,
 				3B6B41F52427043D00C7F5AC /* Constants.swift in Sources */,
 			);
@@ -501,6 +625,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3B13865C25BE196D00EFF526 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B6B41BF2426F65500C7F5AC /* BadJokes */;
+			targetProxy = 3B13865B25BE196D00EFF526 /* PBXContainerItemProxy */;
+		};
 		3B6B41D82426F65800C7F5AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3B6B41BF2426F65500C7F5AC /* BadJokes */;
@@ -509,14 +638,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3B6B41C92426F65500C7F5AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B6B41CA2426F65500C7F5AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3B6B41CE2426F65700C7F5AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -528,6 +649,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B13865E25BE196D00EFF526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UMC7VWP5JF;
+				INFOPLIST_FILE = BadJokesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nino.BadJokesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BadJokes;
+			};
+			name = Debug;
+		};
+		3B13865F25BE196D00EFF526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UMC7VWP5JF;
+				INFOPLIST_FILE = BadJokesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nino.BadJokesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BadJokes;
+			};
+			name = Release;
+		};
 		3B6B41DD2426F65800C7F5AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -729,6 +888,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B13865D25BE196D00EFF526 /* Build configuration list for PBXNativeTarget "BadJokesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B13865E25BE196D00EFF526 /* Debug */,
+				3B13865F25BE196D00EFF526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3B6B41BB2426F65500C7F5AC /* Build configuration list for PBXProject "BadJokes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

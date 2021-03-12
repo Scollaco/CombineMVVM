@@ -6,7 +6,7 @@ final class JokesViewModelTests: TestCase {
 
     var cancellables: Set<AnyCancellable> = []
     var viewModel: JokesViewModel!
-
+  
     override func setUp() {
         super.setUp()
         viewModel = JokesViewModel(
@@ -22,64 +22,45 @@ final class JokesViewModelTests: TestCase {
     }
 
     func test_loadingIndicatorIsHidden() {
-        var expectedValues: [Bool] = []
-        viewModel.outputs.loadingIndicatorIsHidden
-            .sink { expectedValues.append($0) }
-            .store(in: &cancellables)
-
-        XCTAssertEqual(expectedValues, [])
-
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, true)
+        
         viewModel.inputs.jokeButtonTapped.send()
 
-        XCTAssertEqual(expectedValues, [false])
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, false)
 
         scheduler.advance(by: 2)
-
-        XCTAssertEqual(expectedValues, [false, true])
+        XCTAssertEqual(viewModel.outputs.loadingIndicatorIsHidden, true)
     }
 
     func testLabelIsHidden() {
 
+        XCTAssertEqual(viewModel.outputs.labelIsHidden, false)
 
+        viewModel.inputs.jokeButtonTapped.send()
+
+        XCTAssertEqual(viewModel.outputs.labelIsHidden, true)
+
+        scheduler.advance(by: 2)
+        XCTAssertEqual(viewModel.outputs.labelIsHidden, false)
     }
 
     func test_emojiName() {
-        var expectedValues: [String] = []
-        viewModel.outputs.emojiName
-            .sink { expectedValues.append($0) }
-            .store(in: &cancellables)
-
-        XCTAssertEqual(expectedValues, [])
-
-        viewModel.inputs.viewDidLoad.send()
-
-        XCTAssertEqual(expectedValues, ["emoji_sleeping"])
+        XCTAssertEqual(viewModel.outputs.emojiName, "emoji_sleeping")
 
         viewModel.inputs.jokeButtonTapped.send()
 
         scheduler.advance(by: 2)
-        XCTAssertEqual(
-            expectedValues, [
-                "emoji_sleeping",
-                "emoji_funny"
-            ]
-        )
+        XCTAssertEqual(viewModel.outputs.emojiName, "emoji_funny")
     }
 
     func test_jokeLabelText_EmmitsText_WhenButonIsTapped() {
-        var receivedText: String?
-
-        viewModel.outputs.jokeLabelText
-            .sink { value in receivedText = value }
-            .store(in: &cancellables)
-
-        XCTAssertNil(receivedText)
+        XCTAssertEqual(viewModel.jokeLabelText, "Tap for a joke!")
 
         viewModel.inputs.jokeButtonTapped.send(())
 
-        XCTAssertNil(receivedText)
+        XCTAssertEqual(viewModel.jokeLabelText, "Tap for a joke!")
 
         scheduler.advance(by: 2)
-        XCTAssertEqual(receivedText, "My Joke")
+        XCTAssertEqual(viewModel.jokeLabelText, "My Joke")
     }
 }

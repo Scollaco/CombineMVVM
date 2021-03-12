@@ -10,7 +10,7 @@ final class Service: ServiceType {
 
     return URLSession.shared.dataTaskPublisher(for: request)
       .mapError { _ in APIError.invalidRequest }
-      .tryMap(\.data)
+      .tryMap { $0.data }
       .decode(type: T.self, decoder: JSONDecoder())
       .map { .success($0) }
       .catch { error -> AnyPublisher<Result<T, APIError>, Never> in
