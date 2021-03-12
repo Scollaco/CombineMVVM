@@ -2,22 +2,72 @@ import SwiftUI
 import UIKit
 
 struct JokesView: View {
-  @State var savedJokes: [Joke] = [Joke(id: "1", joke: "My joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! joke! "), Joke(id: "2", joke: "My joke!")]
+  typealias UIViewControllerType = JokeViewController
+  
+   @ObservedObject var viewModel = JokesViewModel(
+      service: JokesService(service: Service()),
+      scheduler: DispatchQueue.main.eraseToAnyScheduler()
+  )
   
   var body: some View {
-    List {
-      ForEach(savedJokes) { joke in
-        VStack {
-          Text(joke.joke)
-          .font(.headline)
+    ZStack {
+      Color.lightBlue
+      
+      GeometryReader { geometry in
+        VStack(alignment: .center) {
+          Image(self.viewModel.emojiName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 130, height: 130, alignment: .top)
+          
+          ZStack(alignment: .center) {
+            Text(self.viewModel.jokeLabelText)
+              .foregroundColor(.white)
+              .font(.system(size: 21))
+              .lineLimit(nil)
+              .padding(.horizontal, 20)
+              .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity
+            )
+              .accessibility(identifier: "jokesLabel")
+              .visibility(hidden: self.$viewModel.labelIsHidden)
+            
+            ActivityIndicator()
+              .frame(width: 50, height: 50, alignment: .center)
+              .foregroundColor(.white)
+              .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+          }
+          
+          Button("Start", action: self.jokeButtonTapped)
+            .foregroundColor(.white)
+            .frame(width: 90, height: 90, alignment: .center)
+            .background(Color.salmon)
+            .clipShape(Circle())
+            .font(.system(.headline))
+            .accessibility(identifier: "startButton")
         }
-      }.onDelete(perform: deleteJokes)
+        .padding([.top, .bottom], 50)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+      }
+      .background(Color.lightBlue)
     }
   }
   
-  func deleteJokes(at offsets: IndexSet) {
-    savedJokes.remove(atOffsets: offsets)
+  private func jokeButtonTapped() {
+    self.viewModel.inputs.jokeButtonTapped.send(())
   }
+}
+
+struct JokeViewController : UIViewControllerRepresentable {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<JokeViewController>) -> UIHostingController<JokesView> {
+      let viewController = UIHostingController(rootView: JokesView())
+      return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: UIHostingController<JokesView>, context: UIViewControllerRepresentableContext<JokeViewController>) {}
 }
 
 struct ContentView_Previews: PreviewProvider {
