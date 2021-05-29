@@ -31,6 +31,9 @@
 		3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B4C250D832D00FA5F77 /* JokesView.swift */; };
 		3B734B50250E6FB800FA5F77 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B4F250E6FB800FA5F77 /* Colors.swift */; };
 		3B734B552512D32A00FA5F77 /* MockJokesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B542512D32A00FA5F77 /* MockJokesServices.swift */; };
+		3BB43FFD2662A17400687FB7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43FFC2662A17400687FB7 /* Store.swift */; };
+		3BB43FFF2662A30B00687FB7 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43FFE2662A30B00687FB7 /* Query.swift */; };
+		3BB440012662A46900687FB7 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB440002662A46900687FB7 /* Primitive.swift */; };
 		8613265B2550CA49006EC3BD /* JokesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B734B512512D15D00FA5F77 /* JokesViewModelTests.swift */; };
 		8656E9B5255F40C50004ACAB /* TestScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9B4255F40C40004ACAB /* TestScheduler.swift */; };
 		8656E9B9255F44E50004ACAB /* TestSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9B8255F44E50004ACAB /* TestSchedulerTests.swift */; };
@@ -89,6 +92,9 @@
 		3B734B4F250E6FB800FA5F77 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B734B512512D15D00FA5F77 /* JokesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesViewModelTests.swift; sourceTree = "<group>"; };
 		3B734B542512D32A00FA5F77 /* MockJokesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJokesServices.swift; sourceTree = "<group>"; };
+		3BB43FFC2662A17400687FB7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3BB43FFE2662A30B00687FB7 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		3BB440002662A46900687FB7 /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		8656E9B4255F40C40004ACAB /* TestScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScheduler.swift; sourceTree = "<group>"; };
 		8656E9B8255F44E50004ACAB /* TestSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSchedulerTests.swift; sourceTree = "<group>"; };
 		8656E9BD2561E7A00004ACAB /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 		3B6B41C22426F65500C7F5AC /* BadJokes */ = {
 			isa = PBXGroup;
 			children = (
+				3BB43FFB2662A0CD00687FB7 /* Persistence */,
 				3B13864825BC9E0700EFF526 /* AppDelegate.swift */,
 				3B6B41D12426F65700C7F5AC /* Info.plist */,
 				3B6B41CC2426F65700C7F5AC /* Assets.xcassets */,
@@ -375,6 +382,16 @@
 				3B734B542512D32A00FA5F77 /* MockJokesServices.swift */,
 			);
 			path = MockServices;
+			sourceTree = "<group>";
+		};
+		3BB43FFB2662A0CD00687FB7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				3BB43FFC2662A17400687FB7 /* Store.swift */,
+				3BB43FFE2662A30B00687FB7 /* Query.swift */,
+				3BB440002662A46900687FB7 /* Primitive.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		6E04EADF065525977354BB17 /* Frameworks */ = {
@@ -590,7 +607,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B734B50250E6FB800FA5F77 /* Colors.swift in Sources */,
+				3BB43FFF2662A30B00687FB7 /* Query.swift in Sources */,
 				3B6B41F2242700B900C7F5AC /* Service.swift in Sources */,
+				3BB440012662A46900687FB7 /* Primitive.swift in Sources */,
 				3B6B42002427068900C7F5AC /* Joke.swift in Sources */,
 				3B6B41F82427051D00C7F5AC /* Publisher+Utils.swift in Sources */,
 				3B6B41F02427005000C7F5AC /* APIError.swift in Sources */,
@@ -604,6 +623,7 @@
 				3B6B41FD242705F600C7F5AC /* JokesService.swift in Sources */,
 				3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */,
 				3B6B41EA2426FC1700C7F5AC /* Resource.swift in Sources */,
+				3BB43FFD2662A17400687FB7 /* Store.swift in Sources */,
 				3B734B4D250D832D00FA5F77 /* JokesView.swift in Sources */,
 				3B13864F25BCFF2F00EFF526 /* SwiftUI+ActivityIndicator.swift in Sources */,
 				3B6B41E72426FAEE00C7F5AC /* ServiceType.swift in Sources */,
