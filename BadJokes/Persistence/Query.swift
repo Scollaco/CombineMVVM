@@ -1,9 +1,5 @@
 import Foundation
 
-enum Predicate<T> {
-  case comparison(PartialKeyPath<T>, Operator, Primitive)
-}
-
 enum Operator {
   case lessThan
   case lessThanOrEqualTo

@@ -8,15 +8,21 @@ private enum ImageName {
 }
 
 protocol JokesViewModelInput {
+  var addButtonTapped: PassthroughSubject<Void, Never> { get }
+  var favoritesButtonTapped: PassthroughSubject<Void, Never> { get }
   var jokeButtonTapped: PassthroughSubject<Void, Never> { get }
   var viewDidLoad: PassthroughSubject<Void, Never> { get }
 }
 
 protocol JokesViewModelOutput {
+  var addButtonIsActive: Bool { get }
+  var favoriteButtonIsActive: Bool { get }
   var loadingIndicatorIsHidden: Bool { get }
   var labelIsHidden: Bool { get }
   var emojiName: String { get }
   var jokeLabelText: String { get }
+  var shouldPushFavoritesView: Bool { get }
+  var shouldShowAlertView: Bool { get }
 }
 
 protocol JokesViewModelType {
@@ -36,7 +42,7 @@ final class JokesViewModel: ObservableObject, JokesViewModelType, JokesViewModel
     self.service = service
     self.scheduler = scheduler
     
-    let jokeResponse = self.jokeButtonTapped
+    let jokeResponse = jokeButtonTapped
       .flatMap { [weak self] _  in
         self?.service.fetchJoke() ?? .just(.failure(APIError.genericError))
     }
@@ -55,8 +61,8 @@ final class JokesViewModel: ObservableObject, JokesViewModelType, JokesViewModel
     .assign(to: \.jokeLabelText, on: self)
     .store(in: &cancellables)
     
-    let sleepingImage = self.viewDidLoad
-      .merge(with: self.jokeButtonTapped)
+    let sleepingImage = viewDidLoad
+      .merge(with: jokeButtonTapped)
       .map { _ in return ImageName.sleeping }
       .eraseToAnyPublisher()
     
@@ -77,7 +83,7 @@ final class JokesViewModel: ObservableObject, JokesViewModelType, JokesViewModel
       .assign(to: \.emojiName, on: self)
       .store(in: &cancellables)
     
-    let didTapButton = self.jokeButtonTapped
+    let didTapButton = jokeButtonTapped
       .map { _ in return true }
       .eraseToAnyPublisher()
     
@@ -98,20 +104,46 @@ final class JokesViewModel: ObservableObject, JokesViewModelType, JokesViewModel
     .map(negate)
     .assign(to: \.loadingIndicatorIsHidden, on: self)
     .store(in: &cancellables)
+    
+    favoritesButtonTapped
+      .map { _ in return true }
+      .assign(to: \.shouldPushFavoritesView, on: self)
+      .store(in: &cancellables)
+    
+    addButtonTapped
+      .map { save(joke: self.jokeLabelText) }
+      .map { _ in return true }
+      .assign(to: \.shouldShowAlertView, on: self)
+      .store(in: &cancellables)
+    
+    jokeResponse
+      .filter { $0.isSuccess }
+      .map { _ in true }
+      .assign(to: \.addButtonIsActive, on: self)
+      .store(in: &cancellables)
   }
   
   //MARK: Inputs
-  
+  var addButtonTapped: PassthroughSubject<Void, Never> = PassthroughSubject()
+  var favoritesButtonTapped: PassthroughSubject<Void, Never> = PassthroughSubject()
   var jokeButtonTapped: PassthroughSubject<Void, Never> = PassthroughSubject()
   var viewDidLoad: PassthroughSubject<Void, Never> = PassthroughSubject()
   
   //MARK: Outputs
   
+  @Published var addButtonIsActive: Bool = false
   @Published var emojiName: String = ImageName.sleeping
+  @Published var favoriteButtonIsActive: Bool = true
   @Published var jokeLabelText: String = "Tap for a joke!"
   @Published var labelIsHidden: Bool = false
   @Published var loadingIndicatorIsHidden: Bool = true
+  @Published var shouldPushFavoritesView: Bool = false
+  @Published var shouldShowAlertView: Bool = false
   
   var inputs: JokesViewModelInput { return self }
   var outputs: JokesViewModelOutput { return self }
+}
+
+private func save(joke: String) {
+  print(joke)
 }

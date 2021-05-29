@@ -2,58 +2,79 @@ import SwiftUI
 import UIKit
 
 struct JokesView: View {
-  typealias UIViewControllerType = JokeViewController
-  
-   @ObservedObject var viewModel = JokesViewModel(
-      service: JokesService(service: Service()),
-      scheduler: DispatchQueue.main.eraseToAnyScheduler()
+  @ObservedObject var viewModel = JokesViewModel(
+    service: JokesService(service: Service()),
+    scheduler: DispatchQueue.main.eraseToAnyScheduler()
   )
   
   var body: some View {
-    ZStack {
-      Color.lightBlue
-      
-      GeometryReader { geometry in
-        VStack(alignment: .center) {
-          Image(self.viewModel.emojiName)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 130, height: 130, alignment: .top)
-          
-          ZStack(alignment: .center) {
-            Text(self.viewModel.jokeLabelText)
-              .foregroundColor(.white)
-              .font(.system(size: 21))
-              .lineLimit(nil)
-              .padding(.horizontal, 20)
-              .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity
+    NavigationView {
+      ZStack {
+        NavigationLink(
+          "",
+          destination: JokesListView(),
+          isActive: $viewModel.shouldPushFavoritesView
+        )
+        
+        GeometryReader { geometry in
+          VStack(alignment: .center) {
+            EmojiImageView(
+              imageName: self.$viewModel.emojiName
             )
-              .accessibility(identifier: "jokesLabel")
-              .visibility(hidden: self.$viewModel.labelIsHidden)
-            
-            ActivityIndicator()
-              .frame(width: 50, height: 50, alignment: .center)
-              .foregroundColor(.white)
-              .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+            ZStack(alignment: .center) {
+              JokeLabel(
+                text: self.$viewModel.jokeLabelText,
+                isHidden: self.$viewModel.labelIsHidden
+              )
+              ActivityIndicator()
+                .frame(width: 50, height: 50, alignment: .center)
+                .foregroundColor(.white)
+                .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+            }
+            JokeButton(
+              action: self.jokeButtonTapped
+            )
           }
-          
-          Button("Start", action: self.jokeButtonTapped)
-            .foregroundColor(.white)
-            .frame(width: 90, height: 90, alignment: .center)
-            .background(Color.salmon)
-            .clipShape(Circle())
-            .font(.system(.headline))
-            .accessibility(identifier: "startButton")
+          .padding([.top, .bottom], 100)
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding([.top, .bottom], 50)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.lightBlue).edgesIgnoringSafeArea([.all])
       }
-      .background(Color.lightBlue)
+      .navigationBarTitle(Text(""), displayMode: .large)
+      .navigationBarItems(
+        leading:
+          Button(action: addButtonTapped) {
+            Image(systemName: "icloud.and.arrow.up.fill").imageScale(.large)
+          }
+          .foregroundColor(
+            self.$viewModel.addButtonIsActive.wrappedValue ? Color.white : Color.white.opacity(0.7)
+          )
+          .disabled(self.$viewModel.addButtonIsActive.wrappedValue),
+        trailing:
+          Button(action: favoritesButtonTapped) {
+            Image(systemName: "star.fill").imageScale(.large)
+          }
+          .foregroundColor(
+            self.$viewModel.addButtonIsActive.wrappedValue ? Color.white : Color.white.opacity(0.7)
+          )
+          .disabled(self.$viewModel.addButtonIsActive.wrappedValue)
+      )
+        .alert(isPresented: $viewModel.shouldShowAlertView) {
+          Alert(
+            title: Text(""),
+            message: Text("Joke added to favorites!"),
+            dismissButton: .default(Text("OK"))
+          )
+      }
     }
+  }
+  
+  private func addButtonTapped() {
+    self.viewModel.inputs.addButtonTapped.send(())
+  }
+  
+  private func favoritesButtonTapped() {
+    self.viewModel.inputs.favoritesButtonTapped.send(())
   }
   
   private func jokeButtonTapped() {
@@ -61,17 +82,63 @@ struct JokesView: View {
   }
 }
 
-struct JokeViewController : UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<JokeViewController>) -> UIHostingController<JokesView> {
-      let viewController = UIHostingController(rootView: JokesView())
-      return viewController
-    }
+struct JokeButton: View {
+  let action: () -> Void
+  
+  var body: some View {
+    Button("Start", action: action)
+      .foregroundColor(.white)
+      .frame(width: 90, height: 90, alignment: .center)
+      .background(Color.salmon)
+      .clipShape(Circle())
+      .font(.system(.headline))
+      .accessibility(identifier: "startButton")
+  }
+}
 
-    func updateUIViewController(_ uiViewController: UIHostingController<JokesView>, context: UIViewControllerRepresentableContext<JokeViewController>) {}
+struct JokeLabel: View {
+  @Binding var text: String
+  @Binding var isHidden: Bool
+  
+  var body: some View {
+    Text(text)
+      .foregroundColor(.white)
+      .font(.system(size: 21))
+      .lineLimit(nil)
+      .padding(.horizontal, 20)
+      .frame(
+        minWidth: 0,
+        maxWidth: .infinity,
+        minHeight: 0,
+        maxHeight: .infinity
+    )
+      .accessibility(identifier: "jokesLabel")
+      .visibility(hidden: $isHidden)
+  }
+  
+  init(text: Binding<String>, isHidden: Binding<Bool>) {
+    self._text = text
+    self._isHidden = isHidden
+  }
+}
+
+struct EmojiImageView: View {
+  @Binding var imageName: String
+  
+  var body: some View {
+    Image(imageName)
+      .resizable()
+      .aspectRatio(contentMode: .fill)
+      .frame(width: 130, height: 130, alignment: .top)
+  }
+  
+  init(imageName: Binding<String>) {
+    self._imageName = imageName
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-      JokesView()
-    }
+  static var previews: some View {
+    JokesView()
+  }
 }
