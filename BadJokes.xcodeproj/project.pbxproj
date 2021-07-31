@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B071CB926B60DCF002A0905 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3B071CB826B60DCF002A0905 /* ComposableArchitecture */; };
 		3B13864925BC9E0700EFF526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864825BC9E0700EFF526 /* AppDelegate.swift */; };
 		3B13864B25BCF95700EFF526 /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864A25BCF95700EFF526 /* SwiftUI+View.swift */; };
 		3B13864D25BCFCFA00EFF526 /* Bool+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13864C25BCFCFA00EFF526 /* Bool+Utils.swift */; };
@@ -37,7 +38,6 @@
 		8656E9BE2561E7A00004ACAB /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9BD2561E7A00004ACAB /* TestCase.swift */; };
 		8656E9D12561EC070004ACAB /* AnyScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656E9D02561EC070004ACAB /* AnyScheduler.swift */; };
 		86CEC4B4254B4062007D3025 /* Result+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEC4B3254B4062007D3025 /* Result+Utils.swift */; };
-		D7303DD57D743A97ACF863AA /* Pods_BadJokes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +94,6 @@
 		8656E9BD2561E7A00004ACAB /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		8656E9D02561EC070004ACAB /* AnyScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyScheduler.swift; sourceTree = "<group>"; };
 		86CEC4B3254B4062007D3025 /* Result+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Utils.swift"; sourceTree = "<group>"; };
-		9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BadJokes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E692CCD87CE5AC205A0B3036 /* Pods-BadJokes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BadJokes.release.xcconfig"; path = "Target Support Files/Pods-BadJokes/Pods-BadJokes.release.xcconfig"; sourceTree = "<group>"; };
-		EA46645201D56518E81BFE1D /* Pods-BadJokes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BadJokes.debug.xcconfig"; path = "Target Support Files/Pods-BadJokes/Pods-BadJokes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7303DD57D743A97ACF863AA /* Pods_BadJokes.framework in Frameworks */,
+				3B071CB926B60DCF002A0905 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,15 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B2495193E9A7E2D16D50BE5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EA46645201D56518E81BFE1D /* Pods-BadJokes.debug.xcconfig */,
-				E692CCD87CE5AC205A0B3036 /* Pods-BadJokes.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		3B13865025BE180300EFF526 /* BadJokesUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +190,6 @@
 				3B6B41D92426F65800C7F5AC /* BadJokesTests */,
 				3B13865725BE196D00EFF526 /* BadJokesUITests */,
 				3B6B41C12426F65500C7F5AC /* Products */,
-				6E04EADF065525977354BB17 /* Frameworks */,
-				1B2495193E9A7E2D16D50BE5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,14 +363,6 @@
 			path = MockServices;
 			sourceTree = "<group>";
 		};
-		6E04EADF065525977354BB17 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9EA3BF69F895602084C9D90A /* Pods_BadJokes.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8656E9BC2561E7900004ACAB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,17 +405,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B6B41DF2426F65800C7F5AC /* Build configuration list for PBXNativeTarget "BadJokes" */;
 			buildPhases = (
-				B83022B15745BFD34C6FA9B0 /* [CP] Check Pods Manifest.lock */,
 				3B6B41BC2426F65500C7F5AC /* Sources */,
 				3B6B41BD2426F65500C7F5AC /* Frameworks */,
 				3B6B41BE2426F65500C7F5AC /* Resources */,
-				9D5B67C7F5100712ABE841F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = BadJokes;
+			packageProductDependencies = (
+				3B071CB826B60DCF002A0905 /* ComposableArchitecture */,
+			);
 			productName = BadJokes;
 			productReference = 3B6B41C02426F65500C7F5AC /* BadJokes.app */;
 			productType = "com.apple.product-type.application";
@@ -493,6 +472,9 @@
 				Base,
 			);
 			mainGroup = 3B6B41B72426F65500C7F5AC;
+			packageReferences = (
+				3B071CB726B60DCF002A0905 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 3B6B41C12426F65500C7F5AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -529,48 +511,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9D5B67C7F5100712ABE841F2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BadJokes/Pods-BadJokes-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B83022B15745BFD34C6FA9B0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BadJokes-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B13865225BE196D00EFF526 /* Sources */ = {
@@ -805,7 +745,6 @@
 		};
 		3B6B41E02426F65800C7F5AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA46645201D56518E81BFE1D /* Pods-BadJokes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -824,7 +763,6 @@
 		};
 		3B6B41E12426F65800C7F5AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E692CCD87CE5AC205A0B3036 /* Pods-BadJokes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -925,6 +863,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B071CB726B60DCF002A0905 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B071CB826B60DCF002A0905 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B071CB726B60DCF002A0905 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B6B41B82426F65500C7F5AC /* Project object */;
 }
