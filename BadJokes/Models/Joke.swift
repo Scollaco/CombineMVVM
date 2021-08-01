@@ -1,11 +1,9 @@
 import SwiftUI
 
-struct Joke: Decodable, Identifiable {
-  let id: String
+struct Joke: Decodable, Equatable {
   let joke: String
   
-  init(id: String, joke: String) {
-    self.id = id
+  init(joke: String) {
     self.joke = joke
   }
 }

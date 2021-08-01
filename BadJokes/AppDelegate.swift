@@ -1,5 +1,5 @@
 import SwiftUI
-import UIKit
+import ComposableArchitecture
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,10 +7,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+
     window = UIWindow(frame: UIScreen.main.bounds)
-    let rootVC = UIHostingController.init(rootView: JokeViewController())
-    window?.rootViewController = rootVC
+    self.window?.rootViewController = UIHostingController(
+      rootView: JokesView(
+        store: Store(
+          initialState: JokeState(),
+          reducer: jokeReducer.debug(),
+          environment: JokeEnvironment(
+            jokeClient: JokeClient.live,
+            mainQueue: AnySchedulerOf<DispatchQueue>(DispatchQueue.main)
+          )
+        )
+      )
+    )
     window?.rootViewController?.view.backgroundColor = UIColor.lightBlue
     window?.makeKeyAndVisible()
     return true

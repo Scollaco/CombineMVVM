@@ -1,77 +1,103 @@
 import SwiftUI
+import Foundation
 import UIKit
+import ComposableArchitecture
+
+struct JokeState: Equatable {
+  var emojiImage: String = Images.Emoji.sleeping
+  var joke: String = "Tap the button for a joke!"
+  var isLoading: Bool = false
+}
+
+enum JokeAction: Equatable {
+  case jokesButtonTapped
+  case jokesResponse(Result<Joke, Failure>)
+}
+
+struct JokeEnvironment {
+  var jokeClient: JokeClient
+  var mainQueue: AnySchedulerOf<DispatchQueue>
+}
+
+let jokeReducer = Reducer<JokeState, JokeAction, JokeEnvironment> { state, action, environment in
+  
+  switch action {
+  case .jokesButtonTapped:
+    struct JokeId: Hashable {}
+    state.joke = ""
+    state.isLoading = true
+    state.emojiImage = Images.Emoji.sleeping
+    
+    let resource = Resource<Joke>(route: .fetchJoke)
+    return environment.jokeClient
+      .fetchJoke(resource)
+      .receive(on: environment.mainQueue)
+      .delay(for: 2, scheduler: environment.mainQueue)
+      .catchToEffect()
+      .map(JokeAction.jokesResponse)
+    
+  case .jokesResponse(.failure(let error)):
+    state.joke = error.localizedDescription
+    state.emojiImage = Images.Emoji.sad
+    state.isLoading = false
+    return .none
+    
+  case let .jokesResponse(.success(response)):
+    state.joke = response.joke
+    state.emojiImage = Images.Emoji.funny
+    state.isLoading = false
+    return .none
+  }
+}
 
 struct JokesView: View {
-  typealias UIViewControllerType = JokeViewController
-  
-   @ObservedObject var viewModel = JokesViewModel(
-      service: JokesService(service: Service()),
-      scheduler: DispatchQueue.main.eraseToAnyScheduler()
-  )
+
+  let store: Store<JokeState, JokeAction>
   
   var body: some View {
-    ZStack {
-      Color.lightBlue
-      
-      GeometryReader { geometry in
-        VStack(alignment: .center) {
-          Image(self.viewModel.emojiName)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 130, height: 130, alignment: .top)
-          
-          ZStack(alignment: .center) {
-            Text(self.viewModel.jokeLabelText)
-              .foregroundColor(.white)
-              .font(.system(size: 21))
-              .lineLimit(nil)
-              .padding(.horizontal, 20)
-              .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity
-            )
-              .accessibility(identifier: "jokesLabel")
-              .visibility(hidden: self.$viewModel.labelIsHidden)
+    WithViewStore(self.store) { viewStore in
+      ZStack {
+        Color.lightBlue
+        
+          VStack(alignment: .center) {
+            Image(viewStore.emojiImage)
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 130, height: 130, alignment: .top)
             
-            ActivityIndicator()
-              .frame(width: 50, height: 50, alignment: .center)
+            ZStack(alignment: .center) {
+              Text(viewStore.joke)
+                .foregroundColor(.white)
+                .font(.system(size: 21))
+                .lineLimit(nil)
+                .padding(.horizontal, 20)
+                .frame(
+                  minWidth: 0,
+                  maxWidth: .infinity,
+                  minHeight: 0,
+                  maxHeight: .infinity
+              )
+                .accessibility(identifier: "jokesLabel")
+              
+              if viewStore.isLoading {
+                ActivityIndicator()
+                  .frame(width: 50, height: 50, alignment: .center)
+                  .foregroundColor(.white)
+              }
+            }
+            
+            Button("Start") { viewStore.send(.jokesButtonTapped) }
               .foregroundColor(.white)
-              .visibility(hidden: self.$viewModel.loadingIndicatorIsHidden)
+              .frame(width: 90, height: 90, alignment: .center)
+              .background(Color.salmon)
+              .clipShape(Circle())
+              .font(.system(.headline))
+              .accessibility(identifier: "startButton")
           }
-          
-          Button("Start", action: self.jokeButtonTapped)
-            .foregroundColor(.white)
-            .frame(width: 90, height: 90, alignment: .center)
-            .background(Color.salmon)
-            .clipShape(Circle())
-            .font(.system(.headline))
-            .accessibility(identifier: "startButton")
+          .padding([.top, .bottom], 50)
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding([.top, .bottom], 50)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-      }
-      .background(Color.lightBlue)
+        .background(Color.lightBlue)
     }
   }
-  
-  private func jokeButtonTapped() {
-    self.viewModel.inputs.jokeButtonTapped.send(())
-  }
-}
-
-struct JokeViewController : UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<JokeViewController>) -> UIHostingController<JokesView> {
-      let viewController = UIHostingController(rootView: JokesView())
-      return viewController
-    }
-
-    func updateUIViewController(_ uiViewController: UIHostingController<JokesView>, context: UIViewControllerRepresentableContext<JokeViewController>) {}
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-      JokesView()
-    }
 }
