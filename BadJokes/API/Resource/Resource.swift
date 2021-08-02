@@ -1,6 +1,6 @@
 import Foundation
 
-struct Resource<T: Decodable> {
+public struct Resource<T: Decodable> {
   
   private let route: Route
   private var url: URL? {
