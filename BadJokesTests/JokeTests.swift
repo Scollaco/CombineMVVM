@@ -58,7 +58,3 @@ class JokesTests: XCTestCase {
     }
   }
 }
-
-extension Joke {
-  static let template = Joke(joke: "Test joke!")
-}
